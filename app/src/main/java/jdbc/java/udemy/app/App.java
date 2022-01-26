@@ -3,6 +3,7 @@
  */
 package jdbc.java.udemy.app;
 
+import db.DB;
 import jdbc.java.udemy.list.LinkedList;
 
 import static jdbc.java.udemy.utilities.StringUtils.join;
@@ -11,11 +12,12 @@ import static jdbc.java.udemy.app.MessageUtils.getMessage;
 
 import org.apache.commons.text.WordUtils;
 
+import java.sql.Connection;
+
 public class App {
     public static void main(String[] args) {
-        LinkedList tokens;
-        tokens = split(getMessage());
-        String result = join(tokens);
-        System.out.println(WordUtils.capitalize(result));
+
+        Connection conn = DB.getConnection();
+        DB.closeConnection();
     }
 }
